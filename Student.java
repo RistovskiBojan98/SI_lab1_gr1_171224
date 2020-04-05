@@ -1,6 +1,28 @@
 import java.util.ArrayList;
+import java.util.List;
 
-class Student {
+
+class Course{
+	List<Student> students;
+
+	public Course(List<Student> students) {
+		this.students = students;
+	}
+
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+
+	public void addStudent(Student s){
+		this.students.add(s);
+	}
+}
+
+public class Student {
 	String index;
 	String firstName;
 	String lastName;
@@ -65,6 +87,9 @@ class Student {
 	public static void main(String[] args) {
 		ArrayList<Integer> labPoints = new ArrayList<>();
 		List<Integer> list = new ArrayList<>();
+		List<Student> studentList = null;
+
+
 		labPoints.add(5);
 		labPoints.add(10);
 		labPoints.add(9);
@@ -77,11 +102,14 @@ class Student {
 		list.add(8);
 		list.add(9);
 
+		Student student = new Student("171224", "Bojan", "Ristovski", labPoints);
+		Course course = new Course(studentList);
+		course.addStudent(student);
+
 		double avg = Student.getAverage(labPoints);
 		System.out.println(avg);
 		boolean b = Student.hasSignature(labPoints);
 		System.out.println(b);
 	}
 }
-
 
